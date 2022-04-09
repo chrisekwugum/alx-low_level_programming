@@ -1,41 +1,33 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
- * main - Entry point
+ * main - All possible combinations of 2 digits
  *
- * Return: Always 0 (Success/completed)
+ * Return: Always 0 (Success)
  */
 int main(void)
-
 {
-int number_left;
-int number_right;
+	int a, b;
 
+	for (a = '0'; a <= '9'; a++)
+	{
+		for (b = '0'; b <= '9'; b++)
+		{
+			if (a < b)
+			{
 
-for (number_left = 48; number_right <= 78; number_left++)
-{
-for (number_right = number_left + 1 ; number_right <= 78; number_right++)
-{
+				putchar(a);
+				putchar(b);
 
-putchar(number_left);
-putchar (number_right);
+				if (a != '8' || (a == '8' && b != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
 
-
-if ((number_left == 56) && (number_right == 78))
-{
-break;
-}
-
-putchar(',');
-putchar (' ');
-
-}
-
-}
-
-putchar('\n');
-
-
-return (0);
-
-
+		}
+	}
+	putchar('\n');
+	return (0);
 }
